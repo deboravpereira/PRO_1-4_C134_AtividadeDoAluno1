@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 # dados de treinamento
-train_data = pd.read_csv("./static/assets/data_files/tweet_emotions.csv")    
+train_data = pd.read_csv("./static/data_files/tweet_emotions.csv")    
 training_sentences = []
 
 for i in range(len(train_data)):
@@ -14,7 +14,7 @@ for i in range(len(train_data)):
     training_sentences.append(sentence)
 
 #carregue o modelo
-model = load_model("./static/assets/model_files/Tweet_Emotion.h5")
+model = load_model("./static/model_files/Tweet_Emotion.h5")
 
 vocab_size = 40000
 max_length = 100
@@ -27,19 +27,19 @@ tokenizer.fit_on_texts(training_sentences)
 
 #atribuir emoticons para emoções diferentes
 emo_code_url = {
-    "vazio": [0, "./static/assets/emoticons/Empty.png"],
-    "tristeza": [1,"./static/assets/emoticons/Sadness.png" ],
-    "entusiasmo": [2, "./static/assets/emoticons/Enthusiasm.png"],
-    "neutro": [3, "./static/assets/emoticons/Neutral.png"],
-    "preocupação": [4, "./static/assets/emoticons/Worry.png"],
-    "surpresa": [5, "./static/assets/emoticons/Surprise.png"],
-    "amor": [6, "./static/assets/emoticons/Love.png"],
-    "diversão": [7, "./static/assets/emoticons/fun.png"],
-    "ódio": [8, "./static/assets/emoticons/hate.png"],
-    "felicidade": [9, "./static/assets/emoticons/happiness.png"],
-    "tédio": [10, "./static/assets/emoticons/boredom.png"],
-    "alívio": [11, "./static/assets/emoticons/relief.png"],
-    "raiva": [12, "./static/assets/emoticons/anger.png"]
+    "vazio": [0, "./static/emoticons/Empty.png"],
+    "tristeza": [1,"./static/emoticons/Sadness.png" ],
+    "entusiasmo": [2, "./static/emoticons/Enthusiasm.png"],
+    "neutro": [3, "./static/emoticons/Neutral.png"],
+    "preocupação": [4, "./static/emoticons/Worry.png"],
+    "surpresa": [5, "./static/emoticons/Surprise.png"],
+    "amor": [6, "./static/emoticons/Love.png"],
+    "diversão": [7, "./static/emoticons/fun.png"],
+    "ódio": [8, "./static/emoticons/hate.png"],
+    "felicidade": [9, "./static/emoticons/happiness.png"],
+    "tédio": [10, "./static/emoticons/boredom.png"],
+    "alívio": [11, "./static/emoticons/relief.png"],
+    "raiva": [12, "./static/emoticons/anger.png"]
     
     }
 # escreva a função para prever a emoção
